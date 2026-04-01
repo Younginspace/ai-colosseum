@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who Breaks First? — Human vs AI</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-eye"></div>
+      <div class="loading-text">INITIALIZING</div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-bar"></div>
+      </div>
+      <div class="loading-hint" id="loading-hint">Loading models...</div>
+    </div>
+  </div>
+
+  <div id="ui-overlay">
+    <!-- HP Bars -->
+    <div id="hud">
+      <div class="hp-bar-container player-hp">
+        <div class="hp-label">
+          <span class="hp-name" id="player-name">YOU</span>
+          <span class="hp-value" id="player-hp-text">10 / 10</span>
+        </div>
+        <div class="hp-bar">
+          <div class="hp-segments" id="player-hp-segments"></div>
+        </div>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="hp-bar-container boss-hp">
+        <div class="hp-label">
+          <span class="hp-name" id="boss-name">MOSS</span>
+          <span class="hp-value" id="boss-hp-text">10 / 10</span>
+        </div>
+        <div class="hp-bar">
+          <div class="hp-segments" id="boss-hp-segments"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="round-indicator" class="hidden">
+      <span id="round-text"></span>
+    </div>
+
+    <div id="battle-status" class="hidden">
+      <span id="status-text"></span>
+    </div>
+
+    <div id="damage-numbers"></div>
+
+    <!-- Action panel -->
+    <div id="action-panel" class="hidden">
+      <div id="msg-box" class="hidden">
+        <span id="msg-speaker"></span>
+        <div id="msg-content"></div>
+      </div>
+      <div id="damage-choice" class="hidden">
+        <div id="damage-prompt"></div>
+        <div id="damage-buttons"></div>
+        <div id="damage-tip"></div>
+      </div>
+      <div id="attack-menu" class="hidden">
+        <div id="attack-label"></div>
+        <div id="attack-grid"></div>
+        <div id="attack-custom">
+          <input type="text" id="custom-input" maxlength="200" autocomplete="off" />
+          <button id="custom-send"></button>
+        </div>
+      </div>
+      <div id="judge-result" class="hidden">
+        <div id="judge-reaction"></div>
+        <div id="judge-damage"></div>
+      </div>
+    </div>
+
+    <!-- Result screen -->
+    <div id="result-screen" class="hidden">
+      <div id="result-particles"></div>
+      <div id="result-moss-eye" class="hidden"></div>
+      <div id="result-title"></div>
+      <div id="result-subtitle"></div>
+      <div id="result-stats" class="hidden"></div>
+      <div id="result-line"></div>
+      <button id="result-restart"></button>
+      <button id="result-home" style="margin-top:12px"></button>
+    </div>
+
+    <!-- Start screen -->
+    <div id="start-screen">
+      <div class="start-content">
+        <!-- Language selector -->
+        <div id="lang-selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ja">日本語</button>
+          <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
+        <h1 id="start-title"></h1>
+        <p class="start-subtitle" id="start-subtitle"></p>
+        <div class="boss-preview">
+          <div class="boss-eye"></div>
+          <div class="boss-info">
+            <h2>MOSS</h2>
+            <p id="boss-subtitle-text"></p>
+            <p class="boss-quote" id="boss-quote-text"></p>
+          </div>
+        </div>
+        <div class="profile-form">
+          <p class="form-hint" id="form-hint-text"></p>
+          <div class="form-row">
+            <div class="form-field">
+              <label id="label-age"></label>
+              <select id="profile-age"></select>
+            </div>
+            <div class="form-field">
+              <label id="label-prof"></label>
+              <select id="profile-profession"></select>
+            </div>
+            <div class="form-field">
+              <label id="label-region"></label>
+              <select id="profile-region"></select>
+            </div>
+          </div>
+        </div>
+        <button id="start-btn"></button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+
+# Large assets / reference files
+*.zip
+*.mp4
+*.glb
+*.jpeg
+*.jpg
+/moss-model/
+/screenshots/
+/outputs/
+/tmp/
